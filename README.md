@@ -15,7 +15,7 @@ This action updates the version of a package.json file with the number of the cu
 ## Example usage
 
 ```yaml
-uses: actions/gh-action-beta-version@v0.0.1
+uses: estruyf/gh-action-beta-version@v0.0.1
 with:
   build-id: $GITHUB_RUN_ID
   path: package.json

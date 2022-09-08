@@ -3,7 +3,7 @@
 # `index.js` is the code that will run.
 # For our project, we generate this file through a build process from other source files.
 # We need to make sure the checked-in `index.js` actually matches what we expect it to be.
-name: Check dist/
+name: Check out/
 
 on:
   push:
@@ -17,7 +17,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  check-dist:
+  check-out:
     runs-on: ubuntu-latest
 
     steps:
@@ -31,12 +31,12 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Rebuild the dist/ directory
-        run: npm run prepare
+      - name: Rebuild the out/ directory
+        run: npm run all
 
-      - name: Compare the expected and actual dist/ directories
+      - name: Compare the expected and actual out/ directories
         run: |
-          if [ "$(git diff --ignore-space-at-eol dist/ | wc -l)" -gt "0" ]; then
+          if [ "$(git diff --ignore-space-at-eol out/ | wc -l)" -gt "0" ]; then
             echo "Detected uncommitted changes after build.  See status below:"
             git diff
             exit 1
@@ -47,5 +47,5 @@ jobs:
       - uses: actions/upload-artifact@v2
         if: ${{ failure() && steps.diff.conclusion == 'failure' }}
         with:
-          name: dist
-          path: dist/
+          name: out
+          path: out/

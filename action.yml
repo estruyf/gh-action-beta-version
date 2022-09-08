@@ -1,5 +1,9 @@
 name: 'Beta package updater'
 description: 'Update the current package version with the build number'
+author: 'Elio Struyf'
+branding:
+  icon: package
+  color: red
 inputs:
   build-id:
     description: 'Build ID'

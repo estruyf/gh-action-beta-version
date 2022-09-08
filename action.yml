@@ -17,4 +17,4 @@ outputs:
     description: 'The new version ID'
 runs:
   using: 'node16'
-  main: 'dist/index.js'
+  main: 'out/index.js'

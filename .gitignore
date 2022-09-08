@@ -65,3 +65,7 @@ typings/
 
 # next.js build output
 .next
+
+# Ignore build outputs
+dist
+out

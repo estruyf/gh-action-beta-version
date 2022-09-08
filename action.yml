@@ -1,13 +1,16 @@
-name: 'Wait'
-description: 'Wait a designated number of milliseconds'
+name: 'Beta package updater'
+description: 'Update the current package version with the build number'
 inputs:
-  milliseconds:  # id of input
-    description: 'number of milliseconds to wait'
+  build-id:
+    description: 'Build ID'
     required: true
-    default: '1000'
+  path:
+    description: 'Path of the package.json file'
+    required: true
+    default: 'package.json'
 outputs:
-  time: # output will be available to future steps
-    description: 'The current time after waiting'
+  version:
+    description: 'The new version ID'
 runs:
   using: 'node16'
   main: 'dist/index.js'

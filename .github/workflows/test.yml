@@ -7,7 +7,7 @@ on:
       - main
 
 jobs:
-  build:
+  testing:
     runs-on: ubuntu-latest
 
     steps:
@@ -22,7 +22,7 @@ jobs:
       - uses: ./
         id: updater
         with:
-          build-id: ${{ github.run_number }}
+          build-id: ${{ github.run_id }}
           path: 'package.json'
           preview: true
           name: 'dummy-name'

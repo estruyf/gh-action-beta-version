@@ -48,8 +48,8 @@ async function run(): Promise<void> {
 
     changes.push(`Version: ${pkgJson.version}`);
 
-    core.info(typeof version);
-    core.info(typeof name);
+    core.info(`Version: ${typeof version}`);
+    core.info(`Name: ${typeof name}`);
     
     // Add the optional inputs
     if (preview !== undefined) {

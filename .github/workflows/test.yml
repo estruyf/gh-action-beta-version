@@ -20,19 +20,39 @@ jobs:
       - run: npm run all
 
       - uses: ./
-        id: updater
+        name: Test without name and preview
+        id: updater1
         with:
           build-id: '-beta.${{ github.run_id }}'
           path: 'package.json'
           append-or-replace: 'append'
-          preview: true
           display-name: 'Dummy package name'
           description: 'Dummy package description'
           icon: './dummy.svg'
           homepage: 'https://github.com/marketplace/actions/beta-package-updater'
 
       - name: Get the version output
-        run: echo "Version ${{ steps.updater.outputs.version }}"
+        run: echo "Version ${{ steps.updater1.outputs.version }}"
+
+      - name: Output package.json
+        run: cat package.json
+
+      - uses: ./
+        name: Test with name and preview
+        id: updater2
+        with:
+          name: 'dummy-package'
+          preview: true
+          build-id: '-beta.${{ github.run_id }}'
+          path: 'package.json'
+          append-or-replace: 'append'
+          display-name: 'Dummy package name'
+          description: 'Dummy package description'
+          icon: './dummy.svg'
+          homepage: 'https://github.com/marketplace/actions/beta-package-updater'
+
+      - name: Get the version output
+        run: echo "Version ${{ steps.updater2.outputs.version }}"
 
       - name: Output package.json
         run: cat package.json

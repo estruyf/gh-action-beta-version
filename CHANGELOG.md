@@ -1,5 +1,9 @@
 # Change Log
 
+## [0.0.7] - 2022-09-09
+
+- Fix missing sourcemap
+
 ## [0.0.6] - 2022-09-09
 
 - Update the build command

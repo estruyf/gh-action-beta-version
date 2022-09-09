@@ -4,8 +4,17 @@ import util from 'util';
 
 async function run(): Promise<void> {
   try {
+    // Required inputs
     const buildId = core.getInput('build-id');
     const filePath = core.getInput('path');
+
+    // Optional inputs
+    const preview = core.getInput('preview');
+    const name = core.getInput('name');
+    const displayName = core.getInput('display-name');
+    const description = core.getInput('description');
+    const icon = core.getInput('icon');
+    const homepage = core.getInput('homepage');
 
     if (!buildId) {
       throw new Error('build-id is required');
@@ -26,8 +35,33 @@ async function run(): Promise<void> {
 
     const version = pkgJson.version.split('.');
     pkgJson.version = `${version[0]}.${version[1]}.${buildId.substring(0, 7)}`;
-    pkgJson.preview = true;
+    
+    // Add the optional inputs
+    if (preview !== undefined) {
+      pkgJson.preview = preview;
+    }
 
+    if (name !== undefined) {
+      pkgJson.name = name;
+    }
+
+    if (displayName !== undefined) {
+      pkgJson.displayName = displayName;
+    }
+
+    if (description !== undefined) {
+      pkgJson.description = description;
+    }
+
+    if (icon !== undefined) {
+      pkgJson.icon = icon;
+    }
+
+    if (homepage !== undefined) {
+      pkgJson.homepage = homepage;
+    }
+
+    // Write the updated package.json
     const writeFile = util.promisify(fs.writeFile);
     await writeFile(filePath, JSON.stringify(pkgJson, null, 2), "utf-8");
 

@@ -1,0 +1,38 @@
+name: Testing
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 16
+
+      - run: npm ci
+      - run: npm run all
+
+      - uses: ./
+        id: updater
+        with:
+          build-id: ${{ github.run_number }}
+          path: 'package.json'
+          preview: true
+          name: 'dummy-name'
+          display-name: 'Dummy package name'
+          description: 'Dummy package description'
+          icon: './dummy.svg'
+          homepage: 'https://github.com/marketplace/actions/beta-package-updater'
+
+      - name: Get the version output
+        run: echo "Version ${{ steps.updater.outputs.version }}"
+
+      - name: Output package.json
+        run: cat package.json

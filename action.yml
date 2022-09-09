@@ -12,6 +12,27 @@ inputs:
     description: 'Path of the package.json file'
     required: true
     default: 'package.json'
+    
+  # Extra parameters
+  preview:
+    description: 'Sets the preview property'
+    required: false
+  name:
+    description: 'Sets the name property'
+    required: false
+  display-name:
+    description: 'Sets the displayName property'
+    required: false
+  description:
+    description: 'Sets the description property'
+    required: false
+  icon:
+    description: 'Sets the icon property'
+    required: false
+  homepage:
+    description: 'Sets the homepage property'
+    required: false
+    
 outputs:
   version:
     description: 'The new version ID'

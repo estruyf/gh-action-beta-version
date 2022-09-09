@@ -1,5 +1,10 @@
 # Change Log
 
+## [0.0.8] - 2022-09-09
+
+- Added additional inputs for the action to update in the package.json file.
+- New testing action flow
+
 ## [0.0.7] - 2022-09-09
 
 - Fix missing sourcemap

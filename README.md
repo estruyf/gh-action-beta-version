@@ -4,18 +4,24 @@ This action updates the version of a package.json file with the number of the cu
 
 ## Inputs
 
-### `build-id`
+**Required inputs**
 
-**Required** The build id to use as the version number.
+- `build-id`: The build id to use as the version number.
+- `path`: The path to the package.json file. Default: `package.json`.
 
-### `path`
+**Optional inputs**
 
-**Required** The path to the package.json file. Default: `package.json`.
+- `name`: The name of the package.
+- `display-name`: The display name of the package.
+- `description`: The description of the package.
+- `homepage`: The homepage of the package.
+- `icon`: The icon of the package (used for Visual Studio Code extensions).
+- `preview`: Specify if the package is a preview version (used for Visual Studio Code extensions).
 
 ## Example usage
 
 ```yaml
-uses: estruyf/gh-action-beta-version@v0.0.3
+uses: estruyf/gh-action-beta-version@v0.0.8
 with:
   build-id: ${{ github.run_id }}
   path: package.json

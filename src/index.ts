@@ -5,11 +5,11 @@ import util from 'util';
 async function run(): Promise<void> {
   try {
     // Required inputs
-    const buildId = core.getInput('build-id');
-    const filePath = core.getInput('path');
+    const buildId = core.getInput('build-id', { required: true });
+    const filePath = core.getInput('path', { required: true });
 
     // Optional inputs
-    const preview = core.getInput('preview');
+    const preview = core.getBooleanInput('preview');
     const name = core.getInput('name');
     const displayName = core.getInput('display-name');
     const description = core.getInput('description');
@@ -77,6 +77,7 @@ async function run(): Promise<void> {
     await core.summary
       .addHeading(`Version info`)
       .addRaw(`Here is a list of the changes made to the package.json file:`)
+      .addBreak()
       .addList(changes, true)
       .write();
 

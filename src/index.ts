@@ -33,40 +33,52 @@ async function run(): Promise<void> {
       throw new Error(`No version found in ${filePath}`);
     }
 
+    const changes: string[] = [];
+
     const version = pkgJson.version.split('.');
     pkgJson.version = `${version[0]}.${version[1]}.${buildId.substring(0, 7)}`;
+    changes.push(`Version: ${pkgJson.version}`);
     
     // Add the optional inputs
     if (preview !== undefined) {
       pkgJson.preview = preview;
+      changes.push(`Preview: ${preview}`);
     }
 
     if (name !== undefined) {
       pkgJson.name = name;
+      changes.push(`Name: ${name}`);
     }
 
     if (displayName !== undefined) {
       pkgJson.displayName = displayName;
+      changes.push(`Display name: ${displayName}`);
     }
 
     if (description !== undefined) {
       pkgJson.description = description;
+      changes.push(`Description: ${description}`);
     }
 
     if (icon !== undefined) {
       pkgJson.icon = icon;
+      changes.push(`Icon: ${icon}`);
     }
 
     if (homepage !== undefined) {
       pkgJson.homepage = homepage;
+      changes.push(`Homepage: ${homepage}`);
     }
 
     // Write the updated package.json
     const writeFile = util.promisify(fs.writeFile);
     await writeFile(filePath, JSON.stringify(pkgJson, null, 2), "utf-8");
 
-    const summary = core.summary.addHeading(`Version info`);
-    summary.addDetails(`Version`, pkgJson.version);
+    await core.summary
+      .addHeading(`Version info`)
+      .addRaw(`Here is a list of the changes made to the package.json file:`)
+      .addList(changes, true)
+      .write();
 
     core.setOutput('version', pkgJson.version);
   } catch (error) {

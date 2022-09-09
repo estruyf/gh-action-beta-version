@@ -1,6 +1,6 @@
 # Change Log
 
-## [0.0.10] - 2022-09-09
+## [0.0.11] - 2022-09-09
 
 - Fixes in `preview` property
 

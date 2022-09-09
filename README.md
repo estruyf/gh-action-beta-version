@@ -7,6 +7,7 @@ This action updates the version of a package.json file with the number of the cu
 **Required inputs**
 
 - `build-id`: The build id to use as the version number.
+- `append-or-replace`: Append the `build-id` value to the version or replace the `patch` number with the build id. Options: `append` or `replace`. Default: `replace`.
 - `path`: The path to the package.json file. Default: `package.json`.
 
 **Optional inputs**

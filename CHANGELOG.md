@@ -1,5 +1,9 @@
 # Change Log
 
+## [0.0.9] - 2022-09-09
+
+- Append or replace option for adding the build id to the version number
+
 ## [0.0.8] - 2022-09-09
 
 - Added additional inputs for the action to update in the package.json file.

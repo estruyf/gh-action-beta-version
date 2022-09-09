@@ -8,19 +8,20 @@ inputs:
   build-id:
     description: 'Build ID'
     required: true
-  append-or-replace:
-    type: choice
-    description: 'Append the build ID to the version'
-    required: true
-    options:
-    - append
-    - replace
   path:
     description: 'Path of the package.json file'
     required: true
     default: 'package.json'
 
   # Extra parameters
+  append-or-replace:
+    type: choice
+    description: 'Append the build ID to the version'
+    required: true
+    default: 'replace'
+    options:
+    - append
+    - replace
   preview:
     type: boolean
     description: 'Sets the preview property'

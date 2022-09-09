@@ -76,9 +76,8 @@ async function run(): Promise<void> {
 
     await core.summary
       .addHeading(`Version info`)
-      .addRaw(`Here is a list of the changes made to the package.json file:
-      `)
-      .addList(changes, true)
+      .addRaw(`Here is a list of the changes made to the package.json file:`, true)
+      .addList(changes)
       .write();
 
     core.setOutput('version', pkgJson.version);

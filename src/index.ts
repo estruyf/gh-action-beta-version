@@ -37,9 +37,7 @@ async function run(): Promise<void> {
     const changes: string[] = [];
 
     const version = pkgJson.version.split('.');
-    core.info(`Version before update: ${version.join('.')}`);
-    core.info(`Build ID: ${buildId}`);
-
+  
     if (appendOrReplace === 'append') {
       pkgJson.version = `${pkgJson.version}${buildId}`;
     } else {

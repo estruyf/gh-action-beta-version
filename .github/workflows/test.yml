@@ -43,7 +43,7 @@ jobs:
         with:
           name: 'dummy-package'
           preview: true
-          build-id: '-beta.${{ github.run_id }}'
+          build-id: ${{ github.run_id }}
           path: 'package.json'
           display-name: 'Dummy package name'
           description: 'Dummy package description'

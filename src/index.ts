@@ -10,7 +10,7 @@ async function run(): Promise<void> {
 
     // Optional inputs
     const appendOrReplace = core.getInput('append-or-replace');
-    const preview = core.getInput('preview');
+    const preview = core.getBooleanInput('preview', { required: false });
     const name = core.getInput('name');
     const displayName = core.getInput('display-name');
     const description = core.getInput('description');

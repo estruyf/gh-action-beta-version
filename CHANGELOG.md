@@ -1,5 +1,9 @@
 # Change Log
 
+## [0.0.10] - 2022-09-09
+
+- Update `getInput` for `preview`
+
 ## [0.0.9] - 2022-09-09
 
 - Append or replace option for adding the build id to the version number

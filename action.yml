@@ -23,7 +23,6 @@ inputs:
     - append
     - replace
   preview:
-    type: boolean
     description: 'Sets the preview property'
     required: false
   name:

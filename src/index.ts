@@ -76,8 +76,8 @@ async function run(): Promise<void> {
 
     await core.summary
       .addHeading(`Version info`)
-      .addRaw(`Here is a list of the changes made to the package.json file:`)
-      .addBreak()
+      .addRaw(`Here is a list of the changes made to the package.json file:
+      `)
       .addList(changes, true)
       .write();
 

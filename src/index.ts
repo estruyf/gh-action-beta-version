@@ -10,7 +10,7 @@ async function run(): Promise<void> {
 
     // Optional inputs
     const appendOrReplace = core.getInput('append-or-replace');
-    const preview = core.getBooleanInput('preview', { required: false });
+    const preview = core.getInput('preview');
     const name = core.getInput('name');
     const displayName = core.getInput('display-name');
     const description = core.getInput('description');
@@ -48,36 +48,36 @@ async function run(): Promise<void> {
 
     changes.push(`Version: ${pkgJson.version}`);
 
-    core.info(`Version: ${typeof version}`);
-    core.info(`Name: ${typeof name}`);
+    core.info(`Version: ${typeof version} - ${version}`);
+    core.info(`Name: ${typeof name} - ${version}`);
     
     // Add the optional inputs
-    if (preview !== undefined) {
-      pkgJson.preview = preview;
+    if (preview !== undefined && preview !== '') {
+      pkgJson.preview = preview.toLowerCase() === 'true';
       changes.push(`Preview: ${preview}`);
     }
 
-    if (name !== undefined) {
+    if (name !== undefined && name !== '') {
       pkgJson.name = name;
       changes.push(`Name: ${name}`);
     }
 
-    if (displayName !== undefined) {
+    if (displayName !== undefined && displayName !== '') {
       pkgJson.displayName = displayName;
       changes.push(`Display name: ${displayName}`);
     }
 
-    if (description !== undefined) {
+    if (description !== undefined && description !== '') {
       pkgJson.description = description;
       changes.push(`Description: ${description}`);
     }
 
-    if (icon !== undefined) {
+    if (icon !== undefined && icon !== '') {
       pkgJson.icon = icon;
       changes.push(`Icon: ${icon}`);
     }
 
-    if (homepage !== undefined) {
+    if (homepage !== undefined && homepage !== '') {
       pkgJson.homepage = homepage;
       changes.push(`Homepage: ${homepage}`);
     }

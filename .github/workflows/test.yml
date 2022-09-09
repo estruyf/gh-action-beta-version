@@ -45,7 +45,6 @@ jobs:
           preview: true
           build-id: '-beta.${{ github.run_id }}'
           path: 'package.json'
-          append-or-replace: 'append'
           display-name: 'Dummy package name'
           description: 'Dummy package description'
           icon: './dummy.svg'

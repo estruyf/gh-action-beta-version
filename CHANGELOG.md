@@ -3,6 +3,7 @@
 ## [0.0.12] - 2022-09-29
 
 - Stay under the version range
+
 ## [0.0.11] - 2022-09-09
 
 - Fixes in `preview` property

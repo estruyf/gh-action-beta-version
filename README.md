@@ -22,9 +22,9 @@ This action updates the version of a package.json file with the number of the cu
 ## Example usage
 
 ```yaml
-uses: estruyf/gh-action-beta-version@v0.0.12
+uses: estruyf/gh-action-beta-version@v3
 with:
   build-id: ${{ github.run_id }}
   path: package.json
-  append-or-replace: 'append'
+  append-or-replace: "append"
 ```

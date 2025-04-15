@@ -1,5 +1,9 @@
 # Change Log
 
+## [0.0.13] - 2025-04-15
+
+- Update to the latest verion of GitHub core
+
 ## [0.0.12] - 2022-09-29
 
 - Stay under the version range

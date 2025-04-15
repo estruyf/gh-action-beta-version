@@ -15,13 +15,9 @@ inputs:
 
   # Extra parameters
   append-or-replace:
-    type: choice
     description: 'Append the build ID to the version'
     required: true
     default: 'replace'
-    options:
-    - append
-    - replace
   preview:
     description: 'Sets the preview property'
     required: false
@@ -45,5 +41,5 @@ outputs:
   version:
     description: 'The new version ID'
 runs:
-  using: 'node16'
+  using: node20
   main: 'out/index.js'

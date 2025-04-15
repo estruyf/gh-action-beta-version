@@ -30,7 +30,7 @@
   },
   "homepage": "https://github.com/estruyf/gh-action-beta-version#readme",
   "dependencies": {
-    "@actions/core": "^1.9.1"
+    "@actions/core": "^1.11.1"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.36.2",
